@@ -15,7 +15,7 @@ import { FeaturesPage } from "./pages/FeaturesPage";
 import { PricingPage } from "./pages/PricingPage";
 import { SupportPage } from "./pages/SupportPage";
 import { Error } from "./pages/Error";
-import { PorfilePage } from "./pages/PorfilePage";
+import { ProfilePage } from "./pages/ProfilePage";
 import { PrivateRoute } from "../Routers/PrivateRoute";
 import { DashboardPage } from "./pages/DashboardPage";
 
@@ -34,12 +34,9 @@ const Layout = () => {
 						<Route exact path="/" component={Home} />
 						<Route exact path="/Login" component={LoginPage} />
 						<Route exact path="/Register" component={RegisterPage} />
-						<Route exact path="/Community" component={CommunityPage} />
-						<Route exact path="/Features" component={FeaturesPage} />
-						<Route exact path="/Pricing" component={PricingPage} />
 						<Route exact path="/Support" component={SupportPage} />
 						<PrivateRoute exact path="/Dashboard" component={DashboardPage} />
-						<Route exact path="/Porfile/:username" component={PorfilePage} />
+						<Route exact path="/Profile/:username" component={ProfilePage} />
 						<Route path="*" component={Error} />
 					</Switch>
 					<Footer />

@@ -101,7 +101,7 @@ def register():
     
     user = User()
     user.email = email
-    user.is_active= True
+    # user.is_active= True
     user.username = username
     hashed_password = generate_password_hash(password)
     user.password = hashed_password
