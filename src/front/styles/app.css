@@ -3,3 +3,8 @@
     width: 800px;
 }
 
+.carousel-inner img {
+    width: 500;
+    height: 300;
+  }
+
