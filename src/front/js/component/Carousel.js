@@ -18,6 +18,14 @@ export const Carousel = () => {
 					<img className="img-fluid" src={dogImg1} alt="New York" width="600" height="700" />
 				</div>
 			</div>
+			<a className="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+				<span className="carousel-control-prev-icon" aria-hidden="true" />
+				<span className="sr-only">Previous</span>
+			</a>
+			<a className="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+				<span className="glyphicon glyphicon-chevron-left" />
+				<span className="sr-only">Previous</span>
+			</a>
 		</div>
 	);
 };
