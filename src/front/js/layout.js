@@ -16,7 +16,7 @@ import { PricingPage } from "./pages/PricingPage";
 import { SupportPage } from "./pages/SupportPage";
 import { Error } from "./pages/Error";
 import { ProfilePage } from "./pages/ProfilePage";
-import { PrivateRoute } from "../Routers/PrivateRoute";
+import { PrivateRoutes } from "../Routers/PrivateRoute";
 import { DashboardPage } from "./pages/DashboardPage";
 
 //create your first component
@@ -35,7 +35,7 @@ const Layout = () => {
 						<Route exact path="/Login" component={LoginPage} />
 						<Route exact path="/Register" component={RegisterPage} />
 						<Route exact path="/Support" component={SupportPage} />
-						<Route exact path="/Dashboard" component={DashboardPage} />
+						<PrivateRoutes component={DashboardPage} path="/dashboard" exact />
 						<Route exact path="/Profile/:username" component={ProfilePage} />
 						<Route path="*" component={Error} />
 					</Switch>

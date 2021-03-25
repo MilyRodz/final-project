@@ -1,19 +1,13 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
+//import { isLogin } from "../utils";
 
 const user = null;
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-	<Route
-		{...rest}
-		render={props => {
-			if (user()) {
-				return <Component {...props} />;
-			} else {
-				return <Redirect to="/Login" />;
-			}
-		}}
-	/>
-);
-
-export default PrivateRoute;
+export function PrivateRoute({ component: Component, ...rest }) {
+	return (
+		<>
+			<Route {...rest}>{user ? <Component /> : <Redirect to="/login" />}</Route>
+		</>
+	);
+}
