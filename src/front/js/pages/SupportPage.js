@@ -3,10 +3,11 @@ import React from "react";
 export const SupportPage = () => {
 	return (
 		<div className="container">
-			<div className="supportForm">
+			<h2 className="text-center">Si tienes dudas, escribenos!!</h2>
+			<div className="boxSupport col-sm-8">
 				<form>
-					<div className="form-group col-md-8">
-						<label className="exampleInputEmail1">Correo Electronico</label>
+					<div className="form-group">
+						<label className="inputEmail1">Correo Electronico</label>
 						<input
 							type="email"
 							className="form-control"
@@ -16,16 +17,16 @@ export const SupportPage = () => {
 							required
 						/>
 					</div>
-					<div className="form-group col-md-8">
+					<div className="form-group">
 						<label className="formControlTextarea1">Escribe Aqui</label>
-						<textarea className="form-control" id="formControlTextarea1" />
+						<textarea className="form-control" id="formControlTextarea1" style={{ height: "10rem" }} />
+					</div>
+					<div className="text-center">
+						<button type="submit" className="btn btn-info center-button">
+							Enviar Consulta
+						</button>
 					</div>
 				</form>
-				<div className="text-center">
-					<button type="submit" className="btn btn-info center-button">
-						Enviar Consulta
-					</button>
-				</div>
 			</div>
 		</div>
 	);
