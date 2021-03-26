@@ -7,7 +7,7 @@ import { Home } from "./pages/Home";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import { Footer } from "./component/Footer";
 import { LoginPage } from "./pages/LoginPage";
 import { RegisterPage } from "./pages/RegisterPage";
 import { CommunityPage } from "./pages/CommunityPage";
