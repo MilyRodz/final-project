@@ -78,11 +78,13 @@
 	"dependencies": {
 		"bootstrap": "^4.6.0",
 		"date-fns": "^2.19.0",
+		"formik": "^2.2.6",
 		"jquery": "^3.6.0",
 		"moment": "^2.29.1",
 		"popper.js": "^1.16.1",
 		"prop-types": "^15.7.2",
 		"react": "^16.8.4",
+		"react-bootstrap": "^1.5.2",
 		"react-copyright": "^0.0.1",
 		"react-datepicker": "^3.6.0",
 		"react-dom": "^16.8.4",
@@ -92,6 +94,7 @@
 		"react-router-dom": "^5.2.0",
 		"react-swal": "^3.0.0",
 		"sweetalert-react": "^0.4.11",
-		"sweetalert2": "^10.16.0"
+		"sweetalert2": "^10.16.0",
+		"yup": "^0.32.9"
 	}
 }

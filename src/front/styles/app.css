@@ -308,3 +308,10 @@ body{
 a:hover{
     text-decoration:none;
 }
+
+.error {
+	border: 2px solid #FF6565;
+}
+.error-message {
+	color: #FF6565;
+}
