@@ -21,7 +21,6 @@ import PrivateRoute from "../Routers/PrivateRoute";
 import { DashboardPage } from "./pages/DashboardPage";
 import { Booking } from "./component/Booking";
 import { ForgotPassword } from "./component/ForgotPassword";
-import { LoginPage22 } from "./pages/LoginPage2";
 
 //create your first component
 const Layout = () => {
