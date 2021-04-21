@@ -21,6 +21,7 @@ import PrivateRoute from "../Routers/PrivateRoute";
 import { DashboardPage } from "./pages/DashboardPage";
 import { Booking } from "./component/Booking";
 import { ForgotPassword } from "./component/ForgotPassword";
+import { LoginPage22 } from "./pages/LoginPage2";
 
 //create your first component
 const Layout = () => {
@@ -35,7 +36,7 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/" component={Home} />
-						<Route exact path="/Login" component={LoginPage} />
+						<Route exact path="/login" component={LoginPage} />
 						<Route exact path="/Register" component={RegisterPage} />
 
 						<PrivateRoute path="/dashboard" component={DashboardPage} exact />

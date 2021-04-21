@@ -136,11 +136,11 @@ html, body { height: 100% }
     background-image: url(../img/slides/slide-img-4.jpg);
 } */
 
-input[type="text"], textarea {
+/* input[type="text"], textarea {
 outline: none;
 box-shadow:none !important;
 border:1px solid #ccc !important;
-}
+} */
 
 
 /* speech bubble */
