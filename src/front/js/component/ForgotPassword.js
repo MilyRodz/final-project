@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import emailjs from "emailjs-com";
 
 export const ForgotPassword = () => {
+	const { store, actions } = useContext(Context);
+	const [email, setEmail] = useState("");
+
+	const handlerSubmit = e => {
+		e.preventDefault();
+		actions.validation(email);
+	};
+
 	return (
 		<div className="container">
 			<div className="row justify-content-center">
@@ -19,7 +29,8 @@ export const ForgotPassword = () => {
 										role="form"
 										autoComplete="off"
 										className="form"
-										method="post">
+										method="post"
+										onSubmit={e => handlerSubmit(e)}>
 										<div className="form-group">
 											<div className="input-group">
 												<div className="input-group-prepend">
@@ -29,7 +40,8 @@ export const ForgotPassword = () => {
 												</div>
 												<input
 													id="email"
-													name="email"
+													value={email}
+													onChange={e => setEmail(e.target.value)}
 													placeholder="Ingrese su email"
 													className="form-control border-left-0"
 													type="email"

@@ -43,7 +43,8 @@ const Layout = () => {
 						<PrivateRoute path="/profile" component={ProfilePage} exact />
 						<PrivateRoute path="/booking" component={Booking} exact />
 						<Route exact path="/recuperar" component={ForgotPassword} />
-						<Route exact path="/resetpassword" component={ResetPassword} />
+						<Route exact path="/recuperar/:token" component={ResetPassword} />
+
 						<Route path="*" component={Error} />
 					</Switch>
 					<Footer />

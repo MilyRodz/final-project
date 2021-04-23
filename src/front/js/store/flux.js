@@ -1,3 +1,5 @@
+import emailjs from "emailjs-com";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -121,6 +123,51 @@ const getState = ({ getStore, getActions, setStore }) => {
 				const response = await fetch(process.env.BACKEND_URL + "/api/available-times", settings);
 				const json = await response.json();
 				setStore({ listTimesAvailable: json });
+			},
+			validation: email => {
+				console.log(email);
+				const token = 10000 + Math.floor(Math.random() * 90000);
+				fetch(process.env.BACKEND_URL + "/api/validation", {
+					method: "POST",
+					body: JSON.stringify({
+						email: email,
+						tokenNumber: token
+					}),
+					headers: {
+						"Content-Type": "applications/json"
+					}
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						console.log("funciono");
+						if (data.msg == "Token Modificado") {
+							emailjs.send(
+								"service_2q632pb",
+								"template_nqaa20u",
+								{
+									from_name: "Pets Vets",
+									to_name: data.name,
+									to_email: email,
+									token: "https://3000-scarlet-gull-2w9qy4tl.ws-us03.gitpod.io/recuperar/" + token
+								},
+								"user_IuDqaG8dsQC4o3uUIoCvU"
+							);
+						}
+					});
+			},
+			resetPassword: (pass, token) => {
+				fetch(process.env.BACKEND_URL + "/api/reset-pass", {
+					method: "POST",
+					body: JSON.stringify({
+						password: pass,
+						tokenNumber: token
+					}),
+					headers: { "Content-type": "application/json" }
+				})
+					.then(resp => resp.json())
+					.then(data => {
+						console.log(data);
+					});
 			}
 		}
 	};

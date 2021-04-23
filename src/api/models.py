@@ -12,6 +12,7 @@ class User(db.Model):
     email = db.Column(db.String(250), unique=True, nullable=False)
     phone = db.Column(db.Integer)
     password = db.Column(db.String(250), nullable=False)
+    reset_password = db.Column(db.Integer, unique=False, nullable=False)
 
     appointment = db.relationship('Appointment', backref='user', lazy=True)
 
@@ -25,7 +26,7 @@ class User(db.Model):
             "first_name": self.first_name,
             "last_name": self.last_name,
             "phone": self.phone,
-            "password": self.password      
+            #"password": self.password      
         } 
 
 class Appointment(db.Model):

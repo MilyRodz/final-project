@@ -110,6 +110,7 @@ def register():
     user.first_name= first_name
     user.last_name= last_name
     user.phone = phone
+    user.reset_password = 0
     #user.username = username
     hashed_password = generate_password_hash(password)
     user.password = hashed_password
@@ -268,3 +269,53 @@ def get_available_times():
         return jsonify(response), 200
     else:
         return jsonify([]), 205
+
+@api.route('/validation', methods=['POST'])
+def get_reset_pass():
+
+    email = request.json.get("email", None)
+    token = request.json.get("tokenNumber", None)
+
+    if not email:
+        return jsonify({'msg':'Error de Validacion'}), 201
+
+    if not token:
+        return jsonify({'msg':'Error de Validacion'}), 201
+
+    user = User.query.filter_by(email=email).first()
+
+    if not user:
+        return jsonify({'msg':'Error de Validacion'}), 201
+
+    user.password = randint(100000, 900000)
+    user.reset_password = token
+    print(user)
+    db.session.commit()
+
+    response={
+        'msg': 'Token Modificado'
+    }
+
+    return jsonify(response), 201
+
+    @api.route('/resetPassword', metohds=['POST'])
+    def get_modify_pass():
+        token = request.json.get('tokenNumber', None)
+        password = request.json.get('password', None)
+
+        if not token:
+            return 'Error, intentar Nuevamente', 401
+        if not password:
+            return 'Error, intentar Nuevamente', 401
+
+        selectedUser = User.query.filter_by(reset_password=token).first()
+
+        selectedUser.reset_password = 0
+        selectedUser.password = password
+        print(selectedUser)
+        db.session.commit() 
+
+        response={
+            'msg': 'Modificado Exitosamente'
+        }
+        return jsonify(response), 200
